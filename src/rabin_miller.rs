@@ -1,31 +1,28 @@
-use num_bigint::{BigUint, ToBigUint};
+use num_bigint::{BigInt, RandBigInt};
 use num_traits::{Zero, One};
 use num_integer::Integer;
-use rand::{Rng, thread_rng};
-use num_traits::ToPrimitive;
+use rand::thread_rng;
 
-pub fn rabin_miller(candidate: &BigUint) -> bool {
+pub fn rabin_miller(candidate: &BigInt) -> bool {
     if candidate.is_even() {
         return false; // Even numbers are not prime
     }
-    let zero = BigUint::zero();
-    let one = BigUint::one();
+    let zero = BigInt::zero();
+    let one = BigInt::one();
     let two = &one + &one;
   
     if candidate == &two   { return true }
     if candidate.is_even() { return false }
   
     let (s, d) = rewrite(&(candidate - &one));
-  
+
     let mut k = 0;
     while k < 128 {
         let mut rng = thread_rng(); 
-        let basis: BigUint = if *candidate > BigUint::from(1u8) {
-            let candidate_u64 = candidate.to_u64().unwrap();
-            rng.gen_range(two.to_u64().unwrap()..(candidate_u64 - 1)).to_biguint().unwrap()
-        } else {
-            rng.gen_range(two.to_u64().unwrap()..1).to_biguint().unwrap()
-        };      
+        let mut basis: BigInt = rng.gen_bigint(candidate.bits());
+        while basis <= BigInt::one() || basis >= candidate - &one {
+            basis = rng.gen_bigint(candidate.bits());
+        }
         let mut v = mod_exp(&basis, &d, candidate);
         if v != one && v != (candidate - &one) {
             let mut i = zero.clone();
@@ -44,9 +41,9 @@ pub fn rabin_miller(candidate: &BigUint) -> bool {
     true
 }
 
-fn rewrite(candidate: &BigUint) -> (BigUint, BigUint) {
-    let zero = BigUint::zero();
-    let one = BigUint::one();
+fn rewrite(candidate: &BigInt) -> (BigInt, BigInt) {
+    let zero = BigInt::zero();
+    let one = BigInt::one();
     let two = &one + &one;
     
     let mut s = zero.clone();
@@ -61,11 +58,7 @@ fn rewrite(candidate: &BigUint) -> (BigUint, BigUint) {
     (s, d)
 }
 
-fn mod_exp(base: &BigUint, exponent: &BigUint, modulus: &BigUint) -> BigUint {
+fn mod_exp(base: &BigInt, exponent: &BigInt, modulus: &BigInt) -> BigInt {
     base.modpow(exponent, modulus)
 }
 
-fn main() {
-    let candidate: BigUint = "1048576".parse().unwrap(); // Example 1024-bit number
-    println!("Is prime: {}", rabin_miller(&candidate));
-}
