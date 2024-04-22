@@ -3,7 +3,7 @@ use num_traits::{Zero, One};
 use num_integer::Integer;
 use rand::thread_rng;
 
-pub fn rabin_miller(candidate: &BigInt) -> bool {
+pub fn miller_rabin(candidate: &BigInt) -> bool {
     if candidate.is_even() {
         return *candidate == BigInt::from(2); // 2 is prime
     }

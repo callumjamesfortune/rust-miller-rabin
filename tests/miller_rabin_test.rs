@@ -1,4 +1,4 @@
-use rust_miller_rabin::rabin_miller::rabin_miller;
+use rust_miller_rabin::miller_rabin::miller_rabin;
 
 #[cfg(test)]
 mod tests {
@@ -17,7 +17,7 @@ mod tests {
             BigInt::from(17)
         ];
         for prime in primes {
-            assert_eq!(rabin_miller(&prime), true);
+            assert_eq!(miller_rabin(&prime), true);
         }
     }
 
@@ -38,7 +38,7 @@ mod tests {
             BigInt::from(20),
         ];
         for non_prime in non_primes {
-            assert_eq!(rabin_miller(&non_prime), false);
+            assert_eq!(miller_rabin(&non_prime), false);
         }
     }
 
@@ -52,7 +52,7 @@ mod tests {
         ];
         for prime_str in large_primes {
             let prime = BigInt::parse_bytes(prime_str.as_bytes(), 10).unwrap();
-            assert_eq!(rabin_miller(&prime), true);
+            assert_eq!(miller_rabin(&prime), true);
         }
     }
 
@@ -68,7 +68,7 @@ mod tests {
         ];
         for non_prime_str in large_non_primes {
             let non_prime = BigInt::parse_bytes(non_prime_str.as_bytes(), 10).unwrap();
-            assert_eq!(rabin_miller(&non_prime), false);
+            assert_eq!(miller_rabin(&non_prime), false);
         }
     }
 }
