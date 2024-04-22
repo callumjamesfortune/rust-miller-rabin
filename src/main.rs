@@ -3,7 +3,7 @@ use rust_miller_rabin::rabin_miller::rabin_miller;
 
 fn main() {
     // Create a BigUint to test
-    let candidate: BigUint = BigUint::from(9u8); // Initialize candidate with a larger value
+    let candidate: BigUint = "10757746757434227797".parse().unwrap();
 
     let prime = rabin_miller(&candidate);
 

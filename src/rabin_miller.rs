@@ -61,8 +61,11 @@ fn rewrite(candidate: &BigUint) -> (BigUint, BigUint) {
     (s, d)
 }
 
-
-
 fn mod_exp(base: &BigUint, exponent: &BigUint, modulus: &BigUint) -> BigUint {
     base.modpow(exponent, modulus)
+}
+
+fn main() {
+    let candidate: BigUint = "1048576".parse().unwrap(); // Example 1024-bit number
+    println!("Is prime: {}", rabin_miller(&candidate));
 }
