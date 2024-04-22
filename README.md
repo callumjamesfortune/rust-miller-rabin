@@ -1,5 +1,5 @@
 # <img src="https://github.com/callum-fortune/rust-miller-rabin/assets/63158857/19ebacb0-75c5-4a59-9549-590513dec5e9" width="100">
-# 🚀 rust-miller-rabin - bigInt capability
+# 🚀  Rust Miller-Rabin with bigInt capability
 A complete Rust implementation of the Miller Rabin primality test algorithm, based heavily on (https://github.com/jsanders/rust-rsa).
 
 ### Notes
