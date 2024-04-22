@@ -2,6 +2,8 @@
 name = "rust-miller-rabin"
 version = "0.1.0"
 edition = "2018"
+description = "A Rust implementation of the Miller-Rabin primality test"
+license = "MIT"
 
 [dependencies]
 rand = "0.8"
