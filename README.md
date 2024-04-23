@@ -8,6 +8,10 @@ A complete Rust implementation of the Miller Rabin primality test algorithm, bas
 
   https://core.ac.uk/download/pdf/197479038.pdf
 
+- The official github repo for this project is here...
+
+  https://github.com/callum-fortune/rust-miller-rabin
+
 - I am yet to be made aware of the higher limit of this project, I have tested the code with prime numbers more than 300 characters in length and as little as one, without fail.
 - I created this project on my journey to implenting a basic Rust RSA implementation. This is a common use case for the Miller-Rabin test and there is a good chance that you are in the same process. Be warned that any implementations of your own that use this code are done at your own risk.
 
