@@ -6,6 +6,20 @@ mod tests {
     use num_bigint::BigInt;
 
     #[test]
+    fn test_negative_numbers() {
+
+        let primes = vec![
+            BigInt::from(-150),
+            BigInt::from(-3),
+            BigInt::from(0),
+            BigInt::from(-1005050)
+        ];
+        for prime in primes {
+            assert_eq!(miller_rabin(&prime), false);
+        }
+    }
+
+    #[test]
     fn test_primes() {
 
         let primes = vec![

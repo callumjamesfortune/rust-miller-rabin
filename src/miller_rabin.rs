@@ -4,6 +4,11 @@ use num_integer::Integer;
 use rand::thread_rng;
 
 pub fn miller_rabin(candidate: &BigInt) -> bool {
+
+    if candidate < &BigInt::from(0) {
+        return false;
+    }
+
     if candidate.is_even() {
         return *candidate == BigInt::from(2); // 2 is prime
     }
