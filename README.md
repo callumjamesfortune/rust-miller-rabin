@@ -23,6 +23,17 @@ A complete Rust implementation of the Miller Rabin primality test algorithm. Vie
   cargo build
   cargo run
   ```
+- If you wish to use this as a library you can import and use it as follows:
+
+  ```
+  use rust_miller_rabin::miller_rabin
+  
+  fn is_prime(number: BigInt) -> bool {
+    println!("Checking prime");
+    return miller_rabin(&number);
+  }
+  ```
+
 - I have included tests for the project which will test small primes, large primes, small non-primes and large non-primes. Run these with:
 
   ```
