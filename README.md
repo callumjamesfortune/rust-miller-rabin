@@ -26,7 +26,7 @@ A complete Rust implementation of the Miller Rabin primality test algorithm. Vie
 - If you wish to use this as a library you can import and use it as follows:
 
   ```
-  use rust_miller_rabin::miller_rabin
+  use rust_miller_rabin::miller_rabin::miller_rabin
   
   fn is_prime(number: BigInt) -> bool {
     println!("Checking prime");
