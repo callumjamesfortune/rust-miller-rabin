@@ -1,6 +1,6 @@
 [package]
 name = "rust-miller-rabin"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2018"
 description = "A Rust implementation of the Miller-Rabin primality test"
 license = "MIT"

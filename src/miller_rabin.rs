@@ -14,7 +14,7 @@ pub fn miller_rabin(candidate: &BigInt) -> bool {
     }
 
     if candidate.is_zero() || *candidate == BigInt::from(1) {
-        return false; // 0 and 1 are not prime
+        return false;
     }
 
     if candidate.to_string().len() == 1 {
