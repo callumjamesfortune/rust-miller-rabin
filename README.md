@@ -39,4 +39,3 @@ A complete Rust implementation of the Miller Rabin primality test algorithm. Vie
   ```
   cargo test
   ```
-  ^Not to insult your intelligence
