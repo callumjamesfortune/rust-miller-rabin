@@ -1,6 +1,6 @@
 # <img src="https://github.com/callum-fortune/rust-miller-rabin/assets/63158857/19ebacb0-75c5-4a59-9549-590513dec5e9" width="100">
 # 🚀  Rust Miller-Rabin with bigInt capability
-A complete Rust implementation of the Miller Rabin primality test algorithm. View on github: https://github.com/callum-fortune/rust-miller-rabin
+A complete Rust implementation of the Miller Rabin primality test algorithm. View on github: https://github.com/callumjamesfortune/rust-miller-rabin
 
 ### Notes
 
